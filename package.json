@@ -1,0 +1,40 @@
+{
+   "name": "RegexPerplex"
+  ,"preferGlobal": "false"
+  ,"version": "0.0.1"
+  ,"author": "Jeremy Sellars <jeremy.sellars@softekinc.com>"
+  ,"description": "A web site for learning to use regular expressions written in coffee-script for node.js"
+  ,"contributors": [
+    {
+      "name": "Jeremy Sellars"
+     ,"email": "jeremy.sellars@softekinc.com"
+    }
+  ]
+  ,"bin": {
+    "reset.cmd": "./reset.cmd"
+  }
+  ,"scripts": {
+    "start": "node ./start.js"
+  }
+  ,"keywords": [
+    "softekilluminate"
+   ,"patientreview"
+   ]
+  ,"dependencies" : {
+     "coffee-script":    "1.3.3"
+    ,"connect":          "2.3.0"
+    ,"jade":             "0.26.x"
+    ,"express":          "2.5.9"
+    ,"express-resource": "0.2.4"
+   }
+  ,"noAnalyze": true
+  ,"devDependencies": {
+   }
+  ,"bundleDependencies": [
+   ]
+  ,"license": "MIT"
+  ,"engine": {
+    "node": ">=0.6.5"
+  }
+}
+
