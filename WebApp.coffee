@@ -27,7 +27,7 @@ console.gold = (message) ->
 
 class WebApp
 
-   run: ->
+   run: =>
       process.title = 'Regex Fun Web App - initializing'
       @writeHeader()
       process.title += '.'
@@ -36,13 +36,13 @@ class WebApp
       @listen()
       process.title = 'Regex Fun Web App'
 
-   writeHeader: ->
+   writeHeader: =>
       console.log  '==================='
       console.gold '   Regex Fun App'
       console.log  '==================='
 
-   configureWeb: ->
-      console.log 'configuring web'
+   configureWeb: =>
+      console.log 'configuring web...'
       @port = process.env.PORT ? 3001
 
       @app = express.createServer(
@@ -58,36 +58,31 @@ class WebApp
    tryAuthenticate: (username, token) ->
       return true
 
-   addResources: ->
+   addResources: =>
       resource = require 'express-resource'
       connect.logger('dev')
       @addAllResources()
 
-   addAllResources: ->
-      resources =
-         'vowels':
-            module: (require "./RegexTest.coffee").createResource require("./tests/vowels.json")
-         'sheepish':
-            module: (require "./RegexTest.coffee").createResource require("./tests/sheepish.json")
-         'phrase':
-            module: (require "./RegexTest.coffee").createResource require("./tests/phrase.json")
-         'firstword':
-            module: (require "./RegexTest.coffee").createResource require("./tests/firstword.json")
-      
+   addAllResources: =>
+      resources = {}
+      for file in require('fs').readdirSync(__dirname + '/tests')
+         name = file.replace /([^\/]+).json$/i, '$1'
+         resources[name] = module: (require "./RegexTest.coffee").createResource(require('./tests/' + file))
       console.green 'http://localhost:' + @port + '/' + resource for resource of resources
 
       @addResourceXList null, resources
 
-   addResourceXList: (parent, resources) ->
+   addResourceXList: (parent, resources) =>
       @addResourceX parent, name, moduleAndChildren for name, moduleAndChildren of resources
 
-   addResourceX: (parent, name, moduleAndChildren) ->
+   addResourceX: (parent, name, moduleAndChildren) =>
       resource = @app.resource name, moduleAndChildren.module
+      
       parent.add resource if (parent?)
       moduleAndChildren.module.init(@appContext, resource) if (moduleAndChildren.module.init?)
       @addResourceXList resource, moduleAndChildren.children if moduleAndChildren.children?
 
-   listen: ->
+   listen: =>
       @app.listen @port
       console.green 'listening on :' + @port
 
