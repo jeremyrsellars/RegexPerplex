@@ -22,7 +22,6 @@ exports.createResource = (testDef) =>
 	results = {}
 
 	x = index: (req, res) =>
-		console.log req.body if req.body?
 		source = if req.body? then req.body.regex ? testDef.regex else testDef.regex
 		options = if req.body? then testDef.regexOptions else testDef.regexOptions
 		results[req.user] = getTestResults(source, options, testDef)
@@ -35,7 +34,6 @@ exports.createResource = (testDef) =>
 			allResults:results
 			results:results[req.user].tests
 			user: req.user
-		console.log viewBehind
 		res.render 'test.jade', viewBehind
 
 	x.create = x.index

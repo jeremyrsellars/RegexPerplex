@@ -43,12 +43,16 @@ class WebApp
 
    configureWeb: ->
       console.log 'configuring web'
-      @app = express.createServer()
+      @port = process.env.PORT ? 3001
+
+      @app = express.createServer(
+         connect.favicon(__dirname + '/images/favicon.ico')
+      )
       @app.use("/styles", express.static(__dirname + '/styles'));
       @app.use connect.basicAuth @tryAuthenticate
       @app.use express.bodyParser()
       @app.set 'view engine', 'jade'
-      @app.set('view options', { layout: false })
+      @app.set 'view options', { layout: false }
       @addResources()
 
    tryAuthenticate: (username, token) ->
@@ -70,6 +74,8 @@ class WebApp
          'firstword':
             module: (require "./RegexTest.coffee").createResource require("./tests/firstword.json")
       
+      console.green 'http://localhost:' + @port + '/' + resource for resource of resources
+
       @addResourceXList null, resources
 
    addResourceXList: (parent, resources) ->
@@ -82,6 +88,7 @@ class WebApp
       @addResourceXList resource, moduleAndChildren.children if moduleAndChildren.children?
 
    listen: ->
-      @app.listen 3001
+      @app.listen @port
+      console.green 'listening on :' + @port
 
 new WebApp().run()
