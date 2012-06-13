@@ -33,7 +33,7 @@
   ,"bundleDependencies": [
    ]
   ,"license": "MIT"
-  ,"engine": {
+  ,"engines": {
     "node": ">=0.6.5"
   }
 }
