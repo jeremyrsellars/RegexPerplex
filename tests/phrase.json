@@ -1,5 +1,5 @@
 {
-	"name":"Vowels",
+	"name":"Simple Phrase",
 	"description":"type a regex that will match any double-quoted phrases",
 	"regex":"a",
 	"regexOptions":"g",
