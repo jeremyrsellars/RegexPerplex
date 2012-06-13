@@ -1,2 +1,2 @@
 require('coffee-script');
-require('./webapp.coffee');
+require('./WebApp.coffee');
