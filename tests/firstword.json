@@ -1,0 +1,13 @@
+{
+	"name":"First Word",
+	"description":"type a regex that will match the first word in the input",
+	"regex":"a",
+	"regexOptions":"g",
+	"referenceRegex":"^\\S+",
+	"referenceRegexOptions":"g",
+	"tests": [
+		"a",
+		"a simple sentence",
+		"What a cool idea"
+	]
+}

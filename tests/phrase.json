@@ -1,0 +1,13 @@
+{
+	"name":"Vowels",
+	"description":"type a regex that will match any double-quoted phrases",
+	"regex":"a",
+	"regexOptions":"g",
+	"referenceRegex":"(\"[^\"]+\")",
+	"referenceRegexOptions":"g",
+	"tests": [
+		"I am not a phrase.",
+		"George said, \n\"I cannot tell a lie\", \nthen he sat down.",
+		"\"I'll be in the kitchen,\"\n John said, \"mixing a drink.\"."
+	]
+}

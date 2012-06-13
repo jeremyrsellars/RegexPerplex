@@ -1,0 +1,69 @@
+html
+   head
+      link(rel='stylesheet', href='/styles/table.css')
+      link(rel='stylesheet', href='/styles/match.css')
+
+   script
+      updateRegex = function() {
+         document.getElementById('rex').innerHTML = '/' + document.getElementById('regex').value + '/' + document.getElementById('regexOptions').value
+      }
+   H1= test.name
+
+   span= test.description
+
+   form(method='POST')
+      span /
+      input(id='regex', name='regex', value=source, size=100, oninput="updateRegex()")
+      span /
+      input(id='regexOptions', size=1, oninput="updateRegex()")= options
+      br
+      div(style='background:#dddddd; font-family:courier new')
+         span regex = 
+         span(id='rex')= source
+      div &nbsp;
+      
+      input(type='submit')
+
+   h3 Your results
+   table
+      thead
+         tr
+            td Result
+            td= user
+            td Correct
+      - for (r in results)
+         tr
+            td
+               - if (results[r].isMatch)
+                  span(style='color:green') success
+               - else
+                  span(style='color:red') !!!
+            td
+               | !{results[r].user}
+            td(class='reference')
+               | !{results[r].reference}
+
+
+   h3 Other results
+   - for (user in allResults)
+      table(style='display: inline;')
+         thead
+            tr
+               td Result
+               td
+                  h3= user
+                  a(class='reveal') Reveal
+                  div(class='hide')= allResults[user].regex
+               td Correct
+         - for (r in allResults[user].tests)
+            tr
+               td
+                  - if (allResults[user].tests[r].isMatch)
+                     span(style='color:green') success
+                  - else
+                     span(style='color:red') !!!
+               td
+                  | !{allResults[user].tests[r].user}
+               td(class='reference')
+                  | !{allResults[user].tests[r].reference}
+      span &nbsp;

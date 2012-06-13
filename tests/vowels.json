@@ -1,0 +1,16 @@
+{
+	"name":"Vowels",
+	"description":"type a regex that will match any lower-case vowels (a, e, i, o, u) in the input",
+	"regex":"a",
+	"regexOptions":"g",
+	"referenceRegex":"[aeiou]",
+	"referenceRegexOptions":"g",
+	"tests": [
+		"a",
+		"aeiou",
+		"simple",
+		"UpperCase",
+		"the quick \nbrown fox \njumped over \nthe lazy dog",
+		"abcdefghijklm\nnopqrstuvwxyz\nABCDEFGHIJKLM\nNOPQRSTUVWXYZ\n0123456789\n!@#$%^&*()"
+	]
+}

@@ -1,0 +1,16 @@
+{
+	"name":"Sheepish",
+	"description":"type a regex that will match sheepish words (`b` followed by at least 2 `a`s).",
+	"regex":"baa",
+	"regexOptions":"g",
+	"referenceRegex":"\\bba{2,}\\b",
+	"referenceRegexOptions":"g",
+	"tests": [
+		"ba",
+		"baa",
+		"baa baaaa black sheep",
+		"baaaa baaaa black sheep",
+		"baaaaaaaaaaaaaaaaaaaaaa",
+		"imabaaaaadaaaaaas"
+	]
+}

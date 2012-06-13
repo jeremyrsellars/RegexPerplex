@@ -1,0 +1,29 @@
+span.match
+{
+	background-color:yellow
+}
+
+td.reference span.match
+{
+	background-color:gold
+}
+
+td.other span.match
+{
+	background-color:#99FFFF
+}
+
+.hide
+{
+    display: none;
+}
+
+a.reveal
+{
+	border-style: outset;
+	background-color: silver;
+}
+
+a.reveal:hover + div{
+    display: inline;
+}
