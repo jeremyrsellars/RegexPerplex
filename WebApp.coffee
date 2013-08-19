@@ -65,10 +65,13 @@ class WebApp
 
    addAllResources: =>
       resources = {}
+      tests = []
       for file in require('fs').readdirSync(__dirname + '/tests')
          name = file.replace /([^\/]+).json$/i, '$1'
+         tests.push name
          resources[name] = module: (require "./RegexTest.coffee").createResource(require('./tests/' + file))
       console.green 'http://localhost:' + @port + '/' + resource for resource of resources
+      @app.get '/', (req, res) -> res.render 'index', tests: tests
 
       @addResourceXList null, resources
 
