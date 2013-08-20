@@ -1,0 +1,15 @@
+{
+	"name":"Time",
+	"description":"type a regex that will match the time component",
+	"regex":"12:00",
+	"regexOptions":"g",
+	"referenceRegex":"\\b\\d{1,2}:\\d{2}(?!\\d)",
+	"referenceRegexOptions":"g",
+	"tests": [
+		"12:00 pm",
+		"12:1 ratio",
+		"Meet me at 3:45 pm",
+		"Psalm 119:11",
+		"9:113"
+	]
+}
