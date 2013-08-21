@@ -1,10 +1,14 @@
 span.match
 {
+	border-style: solid;
+	border-width: 1px;
 	background-color:yellow
 }
 
 td.reference span.match
 {
+	border-style: solid;
+	border-width: 1px;
 	background-color:gold
 }
 
