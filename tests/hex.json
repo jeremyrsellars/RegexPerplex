@@ -1,0 +1,13 @@
+{
+	"name":"Hex",
+	"description":"type a regex that matches hex digit strings",
+	"regex":"[0-5a-f]+",
+	"regexOptions":"gi",
+	"referenceRegex":"\\b[0-9a-f]+\\b",
+	"referenceRegexOptions":"gi",
+	"tests": [
+		"123456789abcdef",
+		"DEAD BEEF 15 600D F00D",
+		"10 f00dies eat beef & drink tea"
+	]
+}
